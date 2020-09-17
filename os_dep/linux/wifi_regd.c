@@ -8,6 +8,12 @@
 
 #ifdef CONFIG_IOCTL_CFG80211
 
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 19, 0))
+#define IEEE80211_BAND_5GHZ NL80211_BAND_5GHZ
+#define IEEE80211_BAND_2GHZ NL80211_BAND_2GHZ
+#define IEEE80211_NUM_BANDS NUM_NL80211_BANDS
+#endif
+
 #include <rtw_wifi_regd.h>
 
 static struct country_code_to_enum_rd allCountries[] = {

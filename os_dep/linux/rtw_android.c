@@ -163,6 +163,11 @@ typedef struct compat_android_wifi_priv_cmd {
  * Local (static) functions and variables
  */
 
+static inline bool is_compat_task(void)
+{
+	return in_ia32_syscall() || in_x32_syscall();
+}
+
 /* Initialize g_wifi_on to 1 so dhd_bus_start will be called for the first
  * time (only) in dhd_open, subsequential wifi on will be handled by
  * wl_android_wifi_on

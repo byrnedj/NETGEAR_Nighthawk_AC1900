@@ -71,6 +71,13 @@ static const char * const iw_operation_mode[] =
 	"Auto", "Ad-Hoc", "Managed",  "Master", "Repeater", "Secondary", "Monitor" 
 };
 
+
+
+static inline bool is_compat_task(void)
+{
+	return in_ia32_syscall() || in_x32_syscall();
+}
+
 static int hex2num_i(char c)
 {
 	if (c >= '0' && c <= '9')
